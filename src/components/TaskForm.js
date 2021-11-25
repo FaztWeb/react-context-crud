@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { GlobalContext } from "../context/GlobalState";
 
 const TaskForm = () => {
@@ -10,7 +10,7 @@ const TaskForm = () => {
   });
   const { addTask, updateTask, tasks } = useContext(GlobalContext);
 
-  const history = useHistory();
+  const navigate = useNavigate();
   const params = useParams();
 
   const handleChange = (e) =>
@@ -23,7 +23,7 @@ const TaskForm = () => {
     } else {
       updateTask(task);
     }
-    history.push("/");
+    navigate("/");
   };
 
   useEffect(() => {

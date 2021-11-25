@@ -1,4 +1,4 @@
-import { Route, Switch } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { GlobalProvider } from "./context/GlobalState";
 
 import TaskList from "./components/TaskList";
@@ -12,11 +12,11 @@ function App() {
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <div className="container mx-auto h-full">
           <Heading />
-          <Switch>
-            <Route path="/" component={TaskList} exact />
-            <Route path="/add" component={TaskForm} />
-            <Route path="/edit/:id" component={TaskForm} />
-          </Switch>
+          <Routes>
+            <Route path="/" element={<TaskList />} />
+            <Route path="/add" element={<TaskForm />} />
+            <Route path="/edit/:id" element={<TaskForm />} />
+          </Routes>
         </div>
       </div>
     </GlobalProvider>
